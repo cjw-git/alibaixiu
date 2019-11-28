@@ -1,3 +1,14 @@
+//向服务器端发送请求 索要登录用户的信息
+$.ajax({
+  type: 'get',
+  url: '/users/'+ userId,
+  success: function(response){
+    //console.log(response);   
+    $('.profile .avatar').attr('src',response.avatar);
+    $('.profile .name').html(response.nickName);
+  }
+})
+
 $('#logout').on('click',function(){
     var isConfirm = confirm('您真的要退出登录吗?');
     if(isConfirm){
@@ -12,4 +23,11 @@ $('#logout').on('click',function(){
         }
       })
     }
-  })
+})
+
+//处理日期时间格式
+function formateDate(date){
+  date = new Date(date);
+  return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+ date.getDate()
+} 
+

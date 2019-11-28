@@ -177,51 +177,14 @@
       </div>
     </div>
     <div class="content">
-      <div class="article">
-        <div class="breadcrumb">
-          <dl>
-            <dt>当前位置：</dt>
-            <dd><a href="javascript:;">奇趣事</a></dd>
-            <dd>变废为宝！将手机旧电池变为充电宝的Better RE移动电源</dd>
-          </dl>
-        </div>
-        <h2 class="title">
-          <a href="javascript:;">又现酒窝夹笔盖新技能 城里人是不让人活了！</a>
-        </h2>
-        <div class="meta">
-          <span>DUX主题小秘 发布于 2020-06-29</span>
-          <span>分类: <a href="javascript:;">奇趣事</a></span>
-          <span>阅读: (2421)</span>
-          <span>评论: (143)</span>
-        </div>
+      <div class="article" id="article">
+        
       </div>
+      <div id="comment"></div>
       <div class="panel hots">
         <h3>热门推荐</h3>
-        <ul>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_2.jpg" alt="">
-              <span>星球大战:原力觉醒视频演示 电影票68</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_3.jpg" alt="">
-              <span>你敢骑吗？全球第一辆全功能3D打印摩托车亮相</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_4.jpg" alt="">
-              <span>又现酒窝夹笔盖新技能 城里人是不让人活了！</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_5.jpg" alt="">
-              <span>实在太邪恶！照亮妹纸绝对领域与私处</span>
-            </a>
-          </li>
+        <ul id="recommendBox">
+          
         </ul>
       </div>
     </div>
@@ -231,3 +194,39 @@
   </div>
 </body>
 </html>
+<script src="./assets/vendors/jquery/jquery.min.js"></script>
+<script src="./assets/vendors/art-template/template-web.js"></script>
+<script src="./assets/js/recommend.js"></script>
+<script src="./assets/js/public.js"></script>
+<script src="./assets/js/detail.js"></script>
+
+<!-- 文章详情模板   发布于前面的作者author没有nickName-->
+<script type="text/html" id="detailTpl">
+  <div class="breadcrumb">
+      <dl>
+        <dt>当前位置：</dt>
+        <dd><a href="javascript:;">{{category.title}}</a></dd>
+        <dd>{{title}}</dd>
+      </dl>
+    </div>
+    <h2 class="title">
+      <a href="javascript:;">{{title}}</a>
+    </h2>
+    <div class="meta">
+      <span>itcast 发布于 {{$imports.formateDate(createAt)}}</span>
+      <span>分类: <a href="javascript:;">{{category.title}}</a></span>
+      <span>阅读: ({{meta.views}})</span>
+      <span>评论: ({{meta.comments}})</span>
+      <a href="javascript:;" id="like">赞</a>
+    </div>
+    {{content}}
+</script>
+
+<!-- 评论模板 -->
+<script type="text/html" id="commentTpl">
+<form action="post">
+  <textarea name="" id="" cols="30" rows="10" style="display:block;width:100%;margin-bottom:10px">
+  </textarea>
+  <button type="submit" style="margin-bottom:10px;width:100px;height:40px;">提交评论</button>
+</form>
+</script>
